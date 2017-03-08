@@ -28,7 +28,7 @@ module Dry
 
       class Key < Evaluator
         def call(input)
-          path.reduce(input) { |a, e| a[e] }
+          defined?(input) ? path.reduce(input) { |a, e| a[e] } : nil
         end
         alias_method :[], :call
       end
